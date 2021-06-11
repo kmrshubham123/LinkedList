@@ -36,12 +36,11 @@ namespace LinkedList
             }
             while(temp!=null)
             {
-                
+                Console.Write(temp.data + " ");
                 temp = temp.next;
             }
         }
-
-
+         
     }
    
 }
