@@ -20,7 +20,7 @@ namespace LinkedList
                 Node temp = head;
                 while (temp.next != null)
                 {
-                    temp= temp.next;
+                    temp = temp.next;
                 }
                 temp.next = node;
             }
@@ -29,18 +29,37 @@ namespace LinkedList
         public void Display()
         {
             Node temp = this.head;
-            if (temp==null)
+            if (temp == null)
             {
                 Console.WriteLine("LinkedList is empty");
                 return;
             }
-            while(temp!=null)
+            while (temp != null)
             {
                 Console.Write(temp.data + " ");
                 temp = temp.next;
             }
         }
-         
+        /// <summary>
+        /// UC2:-Inserting a data at beginning through a temp node
+        /// </summary>
+        /// <param int="data"></param>
+        public void InsertAtBeginning(int data)
+        {
+            if (head == null)
+            {
+                head = new Node(data);
+            }
+            else
+            {
+                Node temp = new Node(data);
+                temp.next = head;
+                head = temp;
+            }
+            Console.WriteLine("{0} Inserted Begnning into Linked List", head.data);
+
+        }//End of InsertAtBeginningMethod
+
     }
    
 }
