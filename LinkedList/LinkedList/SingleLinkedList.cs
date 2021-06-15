@@ -59,6 +59,31 @@ namespace LinkedList
             Console.WriteLine("{0} Inserted Begnning into Linked List", head.data);
 
         }//End of InsertAtBeginningMethod
+      
+        /// <summary>
+        /// UC3:-Created Linked List by appending 30 and 70 to 56
+        /// </summary>
+        /// <param int="data"></param>
+        public void Append(int data)
+        {
+            Node node = new Node(data);
+            if (head == null)
+            {
+                head = node;
+            }
+            else
+            {
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = node;
+            }
+            Console.WriteLine("{0} Append into Linked List", node.data);
+        }
+        
+
 
     }
    

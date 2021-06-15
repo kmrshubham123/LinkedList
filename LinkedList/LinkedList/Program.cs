@@ -12,13 +12,22 @@ namespace LinkedList
             list.Add(56);
             list.Add(30);
             list.Add(70);
+            list.Display();
+            Console.WriteLine("========================");
            //UC2:-Insert at Beginning
             list.InsertAtBeginning(70);
             list.InsertAtBeginning(30);
             list.InsertAtBeginning(56);
             list.Display();
-
+            Console.WriteLine("========================");
+            //UC3:-Append
+            list.Append(56);
+            list.Append(30);
+            list.Append(70);
+            list.Display();
+            Console.WriteLine("========================");
             
+
         }
     }
 }
