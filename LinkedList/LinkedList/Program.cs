@@ -34,6 +34,9 @@ namespace LinkedList
             list.Pop(56);
             list.Display();
             Console.WriteLine("=========================");
+            //UC6:-Delete Last Element in the Linked List
+            list.RemoveLastNode(70);
+            list.Display();
 
 
         }

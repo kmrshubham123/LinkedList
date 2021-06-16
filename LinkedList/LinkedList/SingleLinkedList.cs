@@ -109,7 +109,7 @@ namespace LinkedList
                 prev.next = node;
                 node.next = after;
             }
-                Console.WriteLine("{0} Inserted in Between the Linked List", node.data);
+             Console.WriteLine("{0} Inserted in Between the Linked List", node.data);
         }
         public Node Pop(int data)//Methd for Delete Node
         {
@@ -120,10 +120,29 @@ namespace LinkedList
             this.head = this.head.next; //head is link with Next node and Starting or previous node become null 
             Console.WriteLine("{0} Delete into Linked List", data);
             return this.head;
-            
-
-
         }
+        public Node RemoveLastNode(int data)//Method to Delete last element to linked list
+        {
+            if (head == null)// if the first node is null or only one node then, they return null
+            {
+                return null;
+            }
+            if(head.next==null)
+            {
+                return null;
+            }
+            Node NewNode = head;
+            //create and Extra Space Secondlast and traverse the linked list till the second last node
+            while(NewNode.next.next!=null)//the second Last node and make the next pointer of that node null
+            {
+                NewNode = NewNode.next;
+            }//Delete the last node,next node of the 2nd last node delete and value of 2nd last node to null
+            NewNode.next = null;
+            Console.WriteLine("{0} Delete Last Element in List", data);
+            return head;
+        }
+        
+
 
 
     }
