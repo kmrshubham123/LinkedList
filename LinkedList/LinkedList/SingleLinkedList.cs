@@ -111,6 +111,19 @@ namespace LinkedList
             }
                 Console.WriteLine("{0} Inserted in Between the Linked List", node.data);
         }
+        public Node Pop(int data)//Methd for Delete Node
+        {
+            if (this.head == null)
+            {
+                return null;
+            }
+            this.head = this.head.next; //head is link with Next node and Starting or previous node become null 
+            Console.WriteLine("{0} Delete into Linked List", data);
+            return this.head;
+            
+
+
+        }
 
 
     }

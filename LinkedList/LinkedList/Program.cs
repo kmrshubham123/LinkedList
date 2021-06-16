@@ -30,6 +30,11 @@ namespace LinkedList
             list.InsertBetweenPosition(2, 30);
             list.Display();
             Console.WriteLine("=========================");
+            //UC5:-Delete first element in the Linked List
+            list.Pop(56);
+            list.Display();
+            Console.WriteLine("=========================");
+
 
         }
     }
