@@ -26,7 +26,10 @@ namespace LinkedList
             list.Append(70);
             list.Display();
             Console.WriteLine("========================");
-            
+            //UC4:-Inserted in Between LinkedList
+            list.InsertBetweenPosition(2, 30);
+            list.Display();
+            Console.WriteLine("=========================");
 
         }
     }

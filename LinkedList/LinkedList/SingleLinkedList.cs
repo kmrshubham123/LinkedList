@@ -53,7 +53,7 @@ namespace LinkedList
             else
             {
                 Node temp = new Node(data);
-                temp.next = head;
+                temp.next = head; //node is connted through a temperory node
                 head = temp;
             }
             Console.WriteLine("{0} Inserted Begnning into Linked List", head.data);
@@ -82,7 +82,35 @@ namespace LinkedList
             }
             Console.WriteLine("{0} Append into Linked List", node.data);
         }
-        
+        public void InsertBetweenPosition(int position, int data)//Function to insert a Node at required Position
+        {
+            Node node = new Node(data);
+            if (position < 1)
+            {
+                Console.WriteLine("Invalid Position");
+            }
+            else if (position == 1)//if position is 1 then new node is set infornt of head node
+            {
+                node.next = head;
+                head = node; 
+            }
+            else
+            {
+                Node temp = head, prev = head, after;
+                for (int i = 1; i < position; i++)
+                {
+                    temp = temp.next;
+                    if (i == position - 2)
+                    {
+                        prev = temp;
+                    }
+                }
+                after = temp;
+                prev.next = node;
+                node.next = after;
+            }
+                Console.WriteLine("{0} Inserted in Between the Linked List", node.data);
+        }
 
 
     }
