@@ -41,7 +41,9 @@ namespace LinkedList
             //UC7:-Search for element
             list.Search(30);
             list.Display();
-            
+            Console.WriteLine("=========================");
+
+
 
 
         }

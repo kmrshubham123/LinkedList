@@ -148,7 +148,12 @@ namespace LinkedList
             Console.WriteLine("{0} Delete Last Element in List", data);
             return head;
         }
-        public Node Search(int data)
+        /// <summary>
+        /// UC7:-Search LinkedList to find the node
+        /// </summary>
+        /// <param int="data"></param>
+        /// <returns></returns>
+        public Node Search(int data) //Method to use Search Data
         {
             Node temp = head;
             while (temp != null)
