@@ -82,34 +82,41 @@ namespace LinkedList
             }
             Console.WriteLine("{0} Append into Linked List", node.data);
         }
-        public void InsertBetweenPosition(int position, int data)//Function to insert a Node at required Position
+        /// <summary>
+        ///   //UC4:-Inserted in Between LinkedList
+        /// </summary>
+        /// <param int="position"></param>
+        /// <param int="data"></param>
+        /// <returns></returns>
+        public Node InsertBetweenPosition(int position, int data)//Function to insert a Node at required Position
         {
-            Node node = new Node(data);
-            if (position < 1)
-            {
-                Console.WriteLine("Invalid Position");
-            }
-            else if (position == 1)//if position is 1 then new node is set infornt of head node
-            {
-                node.next = head;
-                head = node; 
-            }
+           if (position<1)
+           {
+                Console.WriteLine("Invalid");
+           }
+           if (position==1)
+           {
+                var newNode = new Node(data);
+                newNode.next = this.head;
+                head = newNode;
+           }
             else
             {
-                Node temp = head, prev = head, after;
-                for (int i = 1; i < position; i++)
+                while(position-- != 1)
                 {
-                    temp = temp.next;
-                    if (i == position - 2)
+                    if (position ==1)
                     {
-                        prev = temp;
-                    }
-                }
-                after = temp;
-                prev.next = node;
-                node.next = after;
+                        Node node = new Node(data);
+                        node.next = this.head.next;
+                        head.next = node;
+                        break;
+                    }head = head.next;
+
+                }if(position != 1)
+                    Console.WriteLine("Position out of Range");
             }
-             Console.WriteLine("{0} Inserted in Between the Linked List", node.data);
+            Console.WriteLine("{0} Inserted in Between the Linked List", data);
+            return head;
         }
         public Node Pop(int data)//Methd for Delete Node
         {
@@ -141,9 +148,21 @@ namespace LinkedList
             Console.WriteLine("{0} Delete Last Element in List", data);
             return head;
         }
-        
-
-
+        public Node Search(int data)
+        {
+            Node temp = head;
+            while (temp != null)
+            {
+                if (temp.data == data)
+                {
+                    Console.WriteLine("{0} present in Linked List", data);
+                    return temp;
+                }
+                temp = temp.next;
+            }
+            Console.WriteLine("{0} Not present in Linked List", data);
+            return null;
+        }
 
     }
    

@@ -37,6 +37,11 @@ namespace LinkedList
             //UC6:-Delete Last Element in the Linked List
             list.RemoveLastNode(70);
             list.Display();
+            Console.WriteLine("=========================");
+            //UC7:-Search for element
+            list.Search(30);
+            list.Display();
+            
 
 
         }
