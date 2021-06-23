@@ -209,5 +209,31 @@ namespace LinkedList
             }
             return size;
         }
+        /// <summary>
+        ///  UC10:-Method to sort the linked list when sorted, the Linked List is in Ascending order.
+        /// </summary>
+        /// <param name="data"></param>
+        public void SortLinkedList(int data)
+        {
+            Node newNode = new Node(data);
+            Node current;
+            if (head == null || head.data >= newNode.data)
+            {
+                newNode.next = head;
+                head = newNode;
+            }
+            else
+            {
+                current = head;
+                while (current.next != null && current.next.data < newNode.data)
+                {
+                    current = current.next;
+                }
+                newNode.next = current.next;
+                current.next = newNode;
+            }
+            Console.WriteLine("{0} Insert Sorted Element", data);
+        }
+       
     }
 }

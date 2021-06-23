@@ -50,11 +50,15 @@ namespace LinkedList
             list.DeleteNode(40);
             list.Display();
             Console.WriteLine("\n" + "The Size of Linked List is: " + list.Size());
-            Console.WriteLine("=========================");
-
-
-
-
+            Console.WriteLine("===============================");
+            //UC10:-Linked List in Ascending order
+            SingleLinkedList single = new SingleLinkedList();
+            single.SortLinkedList(56);
+            single.SortLinkedList(30);
+            single.SortLinkedList(40);
+            single.SortLinkedList(70);
+            single.Display();
+            Console.WriteLine("\n==================================");
 
         }
     }
