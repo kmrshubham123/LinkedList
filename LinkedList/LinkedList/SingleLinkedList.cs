@@ -59,7 +59,7 @@ namespace LinkedList
             Console.WriteLine("{0} Inserted Begnning into Linked List", head.data);
 
         }//End of InsertAtBeginningMethod
-      
+
         /// <summary>
         /// UC3:-Created Linked List by appending 30 and 70 to 56
         /// </summary>
@@ -120,7 +120,7 @@ namespace LinkedList
             Console.WriteLine("{0} Inserted in Between the Linked List", data);
             return head;
         }
-     
+
         public Node Pop(int data)//Method for Delete Node
         {
             if (this.head == null)
@@ -137,13 +137,13 @@ namespace LinkedList
             {
                 return null;
             }
-            if(head.next==null)
+            if (head.next == null)
             {
                 return null;
             }
             Node NewNode = head;
             //create and Extra Space Secondlast and traverse the linked list till the second last node
-            while(NewNode.next.next!=null)//the second Last node and make the next pointer of that node null
+            while (NewNode.next.next != null)//the second Last node and make the next pointer of that node null
             {
                 NewNode = NewNode.next;
             }//Delete the last node,next node of the 2nd last node delete and value of 2nd last node to null
@@ -171,7 +171,43 @@ namespace LinkedList
             Console.WriteLine("{0} Not present in Linked List", data);
             return null;
         }
+        /// <summary>
+        /// UC9:-Method to Delete node from the linked list
+        /// </summary>
+        /// <param name="data"></param>
+        public void DeleteNode(int data)
+        {
+            Node temp = head, prev = null;
+            if (temp != null && temp.data == data)
+            {
+                head = temp.next;
+                return;
+            }
+            while (temp != null && temp.data != data)
+            {
+                prev = temp;
+                temp = temp.next;
+            }
+            if (temp == null)
+                return;
 
+            prev.next = temp.next;
+            Console.WriteLine("{0} Element is Deleted", data);
+        }
+        /// <summary>
+        /// UC9:-Method to display size of Linked List
+        /// </summary>
+        /// <returns></returns>
+        public int Size()
+        {
+            Node temp = head;
+            int size = 0;
+            while (temp != null)
+            {
+                size++;
+                temp = temp.next;
+            }
+            return size;
+        }
     }
-   
 }

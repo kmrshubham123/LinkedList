@@ -33,5 +33,20 @@ namespace LinkedListUnitTest
             //Act
             Assert.AreEqual(40, node.data);
         }
+        [Test]
+        //UC9-TC:-Delete 40 from Linked List
+        public void DeleteTheNode()
+        {
+            //Arrange
+            list.Add(56);
+            list.Add(30);
+            list.Add(70);
+            //Assert
+            list.InsertBetweenPosition(2, 40);
+            list.DeleteNode(40);
+            int size = list.Size();
+            //Act
+            Assert.AreEqual(3, size);
+        }
     }
 }
