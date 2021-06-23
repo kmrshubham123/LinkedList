@@ -82,36 +82,39 @@ namespace LinkedList
             }
             Console.WriteLine("{0} Append into Linked List", node.data);
         }
-        public void InsertBetweenPosition(int position, int data)//Function to insert a Node at required Position
+        public Node InsertBetweenPosition(int position, int data)//Function to insert a Node at required Position
         {
-            Node node = new Node(data);
-            if (position < 1)
+            if (position < 1)//list is start from 1 ,id it is less than 1 then invalid position
             {
-                Console.WriteLine("Invalid Position");
+                Console.WriteLine("Invalid");
             }
-            else if (position == 1)//if position is 1 then new node is set infornt of head node
+            if (position == 1)//first Position insert data and create a new node and heads Become a new Node
             {
-                node.next = head;
-                head = node; 
+                var newNode = new Node(data);
+                newNode.next = this.head;
+                head = newNode;
             }
             else
             {
-                Node temp = head, prev = head, after;
-                for (int i = 1; i < position; i++)
+                while (position-- != 1) //checking for its not Zero and till iterating position = 1
                 {
-                    temp = temp.next;
-                    if (i == position - 2)
+                    if (position == 1)
                     {
-                        prev = temp;
+                        Node node = new Node(data);
+                        node.next = this.head.next;
+                        head.next = node;
+                        break;
                     }
+                    head = head.next;
+
                 }
-                after = temp;
-                prev.next = node;
-                node.next = after;
+                if (position != 1)// not 1 then Out of Range
+                    Console.WriteLine("Position out of Range");
             }
-             Console.WriteLine("{0} Inserted in Between the Linked List", node.data);
+            Console.WriteLine("{0} Inserted in Between the Linked List", data);
+            return head;
         }
-        public Node Pop(int data)//Methd for Delete Node
+        public Node Pop(int data)//Method for Delete Node
         {
             if (this.head == null)
             {
@@ -120,31 +123,8 @@ namespace LinkedList
             this.head = this.head.next; //head is link with Next node and Starting or previous node become null 
             Console.WriteLine("{0} Delete into Linked List", data);
             return this.head;
+            
         }
-        public Node RemoveLastNode(int data)//Method to Delete last element to linked list
-        {
-            if (head == null)// if the first node is null or only one node then, they return null
-            {
-                return null;
-            }
-            if(head.next==null)
-            {
-                return null;
-            }
-            Node NewNode = head;
-            //create and Extra Space Secondlast and traverse the linked list till the second last node
-            while(NewNode.next.next!=null)//the second Last node and make the next pointer of that node null
-            {
-                NewNode = NewNode.next;
-            }//Delete the last node,next node of the 2nd last node delete and value of 2nd last node to null
-            NewNode.next = null;
-            Console.WriteLine("{0} Delete Last Element in List", data);
-            return head;
-        }
-        
-
-
-
     }
    
 }
