@@ -90,34 +90,32 @@ namespace LinkedList
         /// <returns></returns>
         public Node InsertBetweenPosition(int position, int data)//Function to insert a Node at required Position
         {
-           if (position<1)
-           {
-                Console.WriteLine("Invalid");
-           }
-           if (position==1)
-           {
-                var newNode = new Node(data);
-                newNode.next = this.head;
-                head = newNode;
-           }
-            else
+            Node newNode = new Node(data);
+            if (this.head == null)
             {
-                while(position-- != 1)
-                {
-                    if (position ==1)
-                    {
-                        Node node = new Node(data);
-                        node.next = this.head.next;
-                        head.next = node;
-                        break;
-                    }head = head.next;
-
-                }if(position != 1)
-                    Console.WriteLine("Position out of Range");
+                return newNode;
             }
-            Console.WriteLine("{0} Inserted in Between the Linked List", data);
-            return head;
+            if (position == 0)
+            {
+                newNode.next = this.head;
+                this.head = newNode;
+                return this.head;
+            }
+            Node prev = null;
+            Node current = this.head;
+            int count = 0;
+            while (current != null && count < position)
+            {
+                prev = current;
+                current = current.next;
+                count++;
+            }
+            Console.WriteLine("{0} Inserted at particular position in Linked List", data);
+            newNode.next = prev.next;
+            prev.next = newNode;
+            return this.head;
         }
+     
         public Node Pop(int data)//Methd for Delete Node
         {
             if (this.head == null)
