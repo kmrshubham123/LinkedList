@@ -42,7 +42,15 @@ namespace LinkedList
             list.Search(30);
             list.Display();
             Console.WriteLine("=========================");
-            
+            //UC8:-insert 40 after 30 to the Linked List
+            list.InsertBetweenPosition(2, 40);
+            list.Display();
+
+
+
+
+
+
         }
     }
 }

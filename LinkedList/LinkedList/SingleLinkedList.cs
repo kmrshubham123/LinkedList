@@ -90,33 +90,38 @@ namespace LinkedList
         /// <returns></returns>
         public Node InsertBetweenPosition(int position, int data)//Function to insert a Node at required Position
         {
-            Node newNode = new Node(data);
-            if (this.head == null)
+            if (position < 1)//list is start from 1 ,id it is less than 1 then invalid position
             {
-                return newNode;
+                Console.WriteLine("Invalid");
             }
-            if (position == 0)
+            if (position == 1)//first Position insert data and create a new node and heads Become a new Node
             {
+                var newNode = new Node(data);
                 newNode.next = this.head;
-                this.head = newNode;
-                return this.head;
+                head = newNode;
             }
-            Node prev = null;
-            Node current = this.head;
-            int count = 0;
-            while (current != null && count < position)
+            else
             {
-                prev = current;
-                current = current.next;
-                count++;
+                while (position-- != 1) //checking for its not Zero and till iterating position = 1
+                {
+                    if (position == 1)
+                    {
+                        Node node = new Node(data);
+                        node.next = this.head.next;
+                        head.next = node;
+                        break;
+                    }
+                    head = head.next;
+
+                }
+                if (position != 1)// not 1 then Out of Range
+                    Console.WriteLine("Position out of Range");
             }
-            Console.WriteLine("{0} Inserted at particular position in Linked List", data);
-            newNode.next = prev.next;
-            prev.next = newNode;
-            return this.head;
+            Console.WriteLine("{0} Inserted in Between the Linked List", data);
+            return head;
         }
      
-        public Node Pop(int data)//Methd for Delete Node
+        public Node Pop(int data)//Method for Delete Node
         {
             if (this.head == null)
             {
